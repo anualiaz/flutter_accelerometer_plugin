@@ -10,19 +10,6 @@ class FlutterAccelerometerPlugin {
     return FlutterAccelerometerPluginPlatform.instance.getPlatformVersion();
   }
 
-//   static const MethodChannel _channel =
-//   MethodChannel('flutter_accelerometer_plugin');
-//
-//   static Future<Map<String, double>?> getSensorData() async {
-//     final data = await _channel.invokeMethod<Map>('getSensorData');
-//     if (data == null) return null;
-//     return {
-//       'x': (data['x'] as num).toDouble(),
-//       'y': (data['y'] as num).toDouble(),
-//       'z': (data['z'] as num).toDouble(),
-//     };
-//   }
-// }
 
   static const MethodChannel _channel = MethodChannel('flutter_accelerometer_plugin');
 
@@ -33,10 +20,6 @@ class FlutterAccelerometerPlugin {
   static Future<void> stopListening() async {
     await _channel.invokeMethod('stopListening');
   }
-
-  // static Stream<Map<String, double>> get sensorStream {
-  //   return _sensorEvents.stream;
-  // }
 
   static final StreamController<Map<String, double>> _sensorController =
   StreamController<Map<String, double>>.broadcast();
@@ -68,19 +51,3 @@ void main() {
   FlutterAccelerometerPlugin.initialize();
 }
 
-
-
-// class FlutterAccelerometerPlugin {
-//   static const MethodChannel _channel =
-//   MethodChannel('flutter_accelerometer_plugin');
-//
-//   static Future<Map<String, double>?> getSensorData() async {
-//     final data = await _channel.invokeMethod<Map>('getSensorData');
-//     if (data == null) return null;
-//     return {
-//       'x': (data['x'] as num).toDouble(),
-//       'y': (data['y'] as num).toDouble(),
-//       'z': (data['z'] as num).toDouble(),
-//     };
-//   }
-// }
